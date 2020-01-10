@@ -1,4 +1,4 @@
-class ArtworkSharesController < ApplicationController
+class Api::ArtworkSharesController < ApplicationController
     def create
         @share = ArtworkShare.new(artwork_share_params)
         if @share.save

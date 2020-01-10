@@ -12,7 +12,7 @@ class Api::ArtworksController < ApplicationController
         if @artwork.save
             render 'api/artworks/show'
         else
-            render json: @artwork.errors.full_messsages, status: 422
+            render json: @artwork.errors.full_messages, status: 422
         end 
     end
 
@@ -21,7 +21,7 @@ class Api::ArtworksController < ApplicationController
         if @artwork.update(artwork_params)
             render 'api/artworks/show'
         else
-            render json: @artworkerrors.full_messsages, status: 422
+            render json: @artwork.errors.full_messages, status: 422
         end 
     end
 
