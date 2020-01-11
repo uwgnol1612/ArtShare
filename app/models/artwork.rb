@@ -2,6 +2,7 @@ class Artwork < ApplicationRecord
     validates :title, :image_url, presence: true
     validates :image_url, uniqueness: true
     validates :title, uniqueness: { scope: :artist_id }
+    validates :favorite, inclusion: { in: [true, false] }
     
     belongs_to :artist,
         foreign_key: :artist_id,
@@ -19,6 +20,8 @@ class Artwork < ApplicationRecord
         foreign_key: :artwork_id,
         class_name: 'Comment',
         dependent: :destroy
+
+    has_many :artwork_collections
 
     def self.artworks_for_user(user_id)
         Artwork
